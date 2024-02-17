@@ -2,7 +2,6 @@
     $fnew=false;
     //  新着フラグ( 日数 )
     if( is_post_new( "days", 3 ) ) $fnew = " --new";
-
     $post_date = get_the_date( 'Y-m-d' );
     $post_datetxt = get_the_date( 'Y.m.d' );
 ?>
@@ -32,7 +31,7 @@
                 <article class="p-article">
                 <?php while (have_posts()) : the_post(); ?>
                     <div class="l-heading --left">
-                        <h2><?php the_title(); ?></h2>
+                        <h1 class="ttl"><?php the_title(); ?></h1>
                         <div class="headinfowrap">
                             <i class="c-icon --pen"></i>
                             <time class="tim" datetime="<?php echo $post_date;?>"><?php echo $post_datetxt;?></time>
