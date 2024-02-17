@@ -7,7 +7,7 @@
     margin-bottom: 72px;
     .l-heading{
         flex-direction :column;
-        h2{
+        .ttl{
             @include fz(28,40,bold);
             @include ls(8);
             margin-bottom: 20px;

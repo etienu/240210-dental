@@ -5,7 +5,7 @@
                 <!-- about -->
                 <div class="p-sidebar-about-wrap">
                     <div class="l-heading --under">
-                        <i class="c-icon --build"></i><h3 class="c-ttl --under">クリニックの紹介</h3>
+                        <i class="c-icon --build"></i><h2 class="c-ttl --under">クリニックの紹介</h2>
                     </div>
                     <picture class="pic">
                         <source media="(max-width: 768px)" srcset="<?php echo GET_PATH()?>blog/about_1@2x.jpg 2x">
@@ -20,7 +20,7 @@
                 <!-- newslist -->
                 <div class="p-sidebar-newslist-wrap">
                     <div class="l-heading --under">
-                        <i class="c-icon --paper"></i><h3 class="c-ttl --under">新着記事</h3>
+                        <i class="c-icon --paper"></i><h2 class="c-ttl --under">新着記事</h2>
                     </div>
                     <ul class="p-sidebar-newslist">
                         <?php
@@ -56,7 +56,7 @@
                 <!-- categorylist -->
                 <div class="p-sidebar-categorylist-wrap">
                     <div class="l-heading --under">
-                        <i class="c-icon --folder"></i><h3 class="c-ttl --under">カテゴリー</h3>
+                        <i class="c-icon --folder"></i><h2 class="c-ttl --under">カテゴリー</h2>
                     </div>
                     <ul class="p-sidebar-categorylist">
                         <?php

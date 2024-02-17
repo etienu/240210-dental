@@ -1,6 +1,16 @@
 <?php /*    以下 全ページ共通パーツの配置  */ ?>
 <?php /* ローディング */ ?>
 <?php
+    $fsingle = false;
+    $logotag = "h1";
+    //  記事ページ
+    if( array_key_exists('page',$args) ){
+        if( $args['page'] == "single"){
+            $fsingle = true;
+            $logotag = "div";
+        }
+    }
+
     //  トップページのみ
     if( is_home() )
         get_template_part(GET_PATH_R('tpl').'layout/l-loader' );
@@ -12,11 +22,11 @@
             <div class="p-header__inner">
                 <div class="p-header__leftwrap">
                     <a href="<?php echo esc_url(home_url()) ?>">
-                        <h1>
+                        <<?php echo $logotag;?>>
                             <picture class="logo">
                                 <img src="<?php echo GET_PATH()?>/header/logo.svg" width="270" height="32" alt="みなみ歯科クリニック">
                             </picture>
-                        </h1>
+                        </<?php echo $logotag;?>>
                     </a>
                 </div>
 

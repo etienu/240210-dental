@@ -5,13 +5,20 @@
     $iname = "";
     $ttl = $args['ttl'];
     $sub = $args['enttl'];
-    if( !empty($args['page']) ){
+
+    $fsingle = false;
+    $ttltag = "h2";
+    if( array_key_exists('page',$args) ){
         switch( $args['page'] ){
         case "about" : $iname = 'page-about_top'; break;
         case "medical" : $iname = 'page-medical_top'; break;
         case "staff" : $iname = 'page-staff_top'; break;
         case "blog" : $iname = 'archive_top'; break;
-        case "single" : $iname = 'archive_top'; break;
+        case "single" :
+            $iname = 'archive_top';
+            $fsingle = true;
+            $ttltag = "div";
+            break;
         case "contact" : $iname = 'page-contact_top'; break;
         case "reserv" : $iname = 'page-contact_top'; break;
         case "404" : $iname = 'page-contact_top'; break;
@@ -31,10 +38,10 @@
             </picture>
             <div class="p-fvsub-inner">
                 <div class="p-fvsub-content">
-                    <h2 class="ttlwrap">
+                    <<?php echo $ttltag;?> class="ttlwrap">
                         <span class="ttl"><?php echo $ttl;?></span>
                         <span class="sub"><?php echo $sub;?></span>
-                    </h2>
+                    </<?php echo $ttltag;?>>
                 </div>
             </div>
         </div>
