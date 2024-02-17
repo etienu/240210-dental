@@ -1,0 +1,71 @@
+@use '../../global' as *;
+
+.p-news-card{
+    position :relative;
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding-block : 8px;
+    border-bottom : 1px solid $color-font-b;
+    gap: 23px;
+    transition : color 0.3s;
+    time{
+        @include fz(12,18,500);
+        @include ls(0);
+    }
+    a{
+        width: 100%;
+    }
+    .txt{
+        @include fz(14,21,500);
+        @include ls(0);
+        text-align: left;
+        width: calc( 100% - 20px );
+    }
+    &:after{
+        position :absolute;
+        content : "";
+        right: 0;
+        @include icon( 'arrow-right', '393939' );
+        transition : transform 0.3s, color 0.3s;
+    }
+    &:hover{
+        color : $color-main;
+        &:after{
+            transform: translateX(2px);
+            @include icon( 'arrow-right', '1391e6' );
+        }
+    }
+}
+
+
+//  レスポンシブ
+//  SP 767以下
+@include mq('-md') {
+.p-news-card{
+    position :relative;
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    padding-block : 8px;
+    border-bottom : 1px solid $color-font-b;
+    gap: 23px;
+    time{
+        @include fz(12,18,500);
+        @include ls(0);
+    }
+    .txt{
+        @include fz(14,21,500);
+        @include ls(0);
+    }
+    &:after{
+        position :absolute;
+        content : "";
+        right: 0;
+        @include icon( 'arrow-right', '393939' );
+    }
+}
+
+
+}

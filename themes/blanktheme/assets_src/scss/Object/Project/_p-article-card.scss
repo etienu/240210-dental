@@ -1,0 +1,218 @@
+@use '../../global' as *;
+
+.p-article-card{
+    position : relative;
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    width: 100%;
+    //  共通
+    .pic{
+        overflow:hidden;
+        img{
+            transition  : transform 0.3s;
+        }
+    }
+    .txtwrap{
+        display : flex;
+        flex:1;
+        flex-direction : column;
+        justify-content : center;
+        align-items : flex-start;
+        text-align:left;
+        .catwrap{
+            display: flex;
+            flex-direction : row;
+            flex-wrap: wrap;
+            column-gap: 8px;
+            row-gap: 8px;
+        }
+        .cattag{
+            @include ls(0);
+            color : $color-font-w;
+            background-color: $color-main;
+        }
+        .ttl{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            transition : color 0.3s;
+            -ms-word-break:break-all;
+            word-break:break-all;   //  1単語が長文の場合自動で割れずに貫通される為
+            // Pneumonoultramicroscopicsilicovolcanoconiosis ← 1単語
+        }
+    }
+    &.--new{
+        &:before{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            position:absolute;
+            content:"NEW";
+            width : 40px;
+            height : 40px;
+            color : $color-font-w;
+            background-color : $color-lightcoral;
+            border-radius: 50%;
+            @include fz(10,15,bold);
+            z-index:1;
+        }
+    }
+
+
+    //  メイン
+    &:not(&.--min){
+        .pic{
+            width: auto;
+            max-width: vwml(244);
+            height: 153px;
+            aspect-ratio: 244/153;
+            img{
+                object-fit: cover;
+            }
+            flex:1;
+        }
+        .txtwrap{
+            padding-block : 19px 14px;
+            padding-inline : 20px;
+            .catwrap{                
+                margin-bottom : 12px;
+            }
+            .cattag{
+                @include fz(11,16,500);
+                border-radius : 12px;
+                padding-block : 6px;
+                padding-inline : 12px;
+            }
+            .ttl{
+                @include fz(16,24,500);
+                @include ls(0);
+                margin-bottom : 14px;
+            }
+            .tim{
+                @include fz(12,18,500);
+                @include ls(0);
+                color : $color-gray;
+            }
+        }
+        &.--new{
+            &:before{
+                top : -10px;
+                left : -10px;
+            }
+        }
+    }
+    //  サイド
+    &.--min{
+        gap: 10px;
+        .pic{
+            width: 120px;
+            aspect-ratio: 120/90;
+        }
+        .txtwrap{
+            .catwrap{                
+                margin-bottom : 6px;
+            }
+            .cattag{
+                @include fz(10,15,500);
+                border-radius : 10px;
+                padding-block : 1px 2px;
+                padding-inline : 8px;
+            }
+            .ttl{
+                @include fz(14,20,500);
+                @include ls(0);
+                margin-bottom : 6px;
+            }
+            .tim{
+                @include fz(11,16,500);
+                @include ls(0);
+                color : $color-gray;
+            }
+        }
+        &.--new{
+            &:before{
+                top : -8px;
+                left : -8px;
+            }
+        }
+    }
+    &:hover{
+        &:not(&.--min),
+        &.--min{
+            .pic{
+                img{
+                    transform : scale(1.1);
+                }
+            }
+            .txtwrap{
+                .ttl{
+                    color : $color-main;
+                }
+            }
+        }
+    }
+}
+
+
+//----------------------------
+//  タブ以下
+@include mq('-lg') {
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+
+.p-article-card{
+    //  PCもSP版基準の調整となる
+    gap: 10px;
+    //  メイン
+    &:not(&.--min),
+    &.--min{
+        .pic{
+            width: 133px;
+            max-width: vwms(133);
+            height: 101px;
+            aspect-ratio: 133/101;
+            img{
+                object-fit: cover;
+            }
+        }
+        .txtwrap{
+            padding-block : 6px 8px;
+            padding-inline : 10px;
+            .catwrap{
+                margin-bottom : 6px;
+            }
+            .cattag{
+                @include fz(10,15,500);
+                border-radius : 10px;
+                padding-block : 1px 2px;
+                padding-inline : 8px;
+            }
+            .ttl{
+                @include fz(14,20,500);
+                @include ls(0);
+                margin-bottom : 6px;
+            }
+            .tim{
+                @include fz(11,16,500);
+                @include ls(0);
+                color : $color-gray;
+            }
+        }
+
+        &.--new{
+            &:before{
+                top : -8px;
+                left : -8px;
+            }
+        }
+    }
+
+}
+
+
+}

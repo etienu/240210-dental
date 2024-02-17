@@ -1,0 +1,97 @@
+@use '../../global' as *;
+//    SUB FV
+.p-fvsub {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding-top: 40px;
+    .p-fvsub-bg{
+        position: relative;
+        display:flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        picture{
+            margin-inline: 60px;
+            width: calc( 100% - 120px);
+            height: fit-content;
+            height: 340px;
+            overflow: hidden;
+            border-radius: 16px;
+            pointer-events : none;
+            img{
+                filter : brightness(0.8);
+                object-fit: cover;
+            }
+        }
+    }
+
+    .p-fvsub-inner {
+        position : absolute;
+    
+    }
+
+    .p-fvsub-content{
+        width: 100%;
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        .ttlwrap{
+            display: flex;
+            flex-direction : column;
+            gap: 17px;
+            color : $color-font-w;
+            .ttl{
+                @include fz(32,48,bold);
+                @include ls(10);
+            }
+            .sub{
+                @include fz(14,21,bold);
+                @include ls(10);
+            }
+        }
+    }
+
+}
+
+
+//  レスポンシブ
+//  SP 767以下
+@include mq('-md') {
+    .p-fvsub {
+        padding-top: 20px;
+        .p-fvsub-bg{
+            picture{
+                margin-inline: 20px;
+                width: calc( 100% - 40px);
+                height: fit-content;
+                aspect-ratio: 335/188;
+                border-radius: 12px;
+            }
+        }
+    
+        .p-fvsub-inner {
+        }
+    
+        .p-fvsub-content{
+            .ttlwrap{
+                gap: 14px;
+                .ttl{
+                    @include fz(24,36,bold);
+                    @include ls(20);
+                }
+                .sub{
+                    @include fz(12,18,bold);
+                    @include ls(10);
+                }
+            }
+        }
+    
+    }
+    
+
+}

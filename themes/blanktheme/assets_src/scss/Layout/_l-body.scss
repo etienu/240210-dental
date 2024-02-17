@@ -1,0 +1,114 @@
+@charset 'UTF8';
+@use '../global' as g;
+
+//# 全体に影響を及ぼす設定
+* {
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+}
+
+html {
+//	font-size: 10px;
+//  フォントサイズは基本的にscssで関数を使用して指定する事で
+//  一括修正を可能な状態にしておく
+    font-size: 62.5%; // 1rem = 10px
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    //  スームススクロール
+	//scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: g.$baseFont;
+	font-size: 1.6rem;
+    font-weight: 400;
+	line-height: 1.5;
+    font-feature-settings: 'palt';
+    //  iphone対策
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+    color: g.$color-font-b;
+    background-color: g.$color-white;
+
+    overflow-y: auto;
+    text-align: center;
+    overflow-wrap: break-word; //  自動改行
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+//--------------------------------
+//  IE11
+//--------------------------------
+_:lang(x)::-ms-backdrop, body {
+    font-family: 'Segoe UI', Meiryo, sans-serif;
+}
+
+
+
+//--------------------------------
+//  全体で使用する 簡易指定クラス
+//---------------------------------
+//  hrefリンクの基本的なCSS
+.alink{
+    //color : g.$color-hreflink;
+    transition : opacity 0.3s;
+    &:hover{
+        text-decoration: underline;
+        //opacity: 0.7;
+    }
+}
+
+
+//--------------------------------
+//    基本タグの設定
+//--------------------------------
+picture{
+    display:block;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+//    width: attr(width);
+//    height: attr(height);
+    object-fit:contain;
+}
+h2,h3{
+    display:inline-block;
+}
+
+//  低コストタブレット対応
+//  設定すると768～1080間で縮小発生しレスポンシブ不要になる
+body{
+    //	min-width: 1440px;
+}
+html{
+//    min-width: 1440px;
+}
+
+// iphoneの320pxで崩れないように
+// 375px以下はbody幅を固定して縮小する
+@media screen and ( max-width: 768px ){
+    body {
+    //   min-width: 375px;
+        //overflow:hidden;
+    }
+}
+/*--------------------------------
+    
+---------------------------------*/
+@include g.mq('-md') {
+body{
+    min-width: auto;
+}
+}

@@ -1,0 +1,29 @@
+@use "../../global" as *;
+//--------------------------------
+//  リンク先位置調整アンカー
+//  u-は既にあるもののプロパティ調整なのでc-で作る
+//--------------------------------
+.c-anchor {
+    position: absolute;
+    margin-top: 0;
+}
+
+@for $i from 1 through 28 {
+    /* .c-anchor__b5～.c-anchor__b140まで作成 */
+    .c-anchor-b#{$i * 5} {
+        position: absolute;
+        margin-bottom: -#{$i * 5}px;
+      @include mq('-md') {
+        margin-bottom: -#{$i * 3}px;
+      }
+    }
+    /* .c-anchor__b5～.c-anchor__b140まで作成 */
+    .c-anchor-t#{$i * 5} {
+        position: absolute;
+        margin-top: -#{$i * 5}px;
+      @include mq('-md') {
+        margin-top: -#{$i * 3}px;
+      }
+    }
+  }
+

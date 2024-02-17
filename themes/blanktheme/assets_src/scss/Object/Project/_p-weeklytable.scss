@@ -1,0 +1,159 @@
+@use '../../global' as g;
+.p-weeklytable {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color : g.$color-white;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 4px g.$shadow5 );
+    padding: 30px;
+}
+
+
+.p-weeklytable-content {
+    display: block;
+    width: 100%;
+    tbody{
+        tr{
+            .time{
+                min-width: 100px;
+                color : g.$color-font-b;
+                @include g.fz(16,16,bold);
+                @include g.ls(0);
+            }
+            th,td{
+                min-width: 40px;
+                @include g.fz(14,14);
+                @include g.ls(0);
+                text-align:center;
+            }
+            th{
+                padding: 10px;
+                border-bottom: 1px solid g.$color-font-b;
+                &.time{
+                    text-align:center;
+                    font-weight: bold;
+                }
+            }
+            .sat,
+            .sun{
+                position : relative;
+                &:before{
+                    position : absolute;
+                    content : "";
+                    border-radius: 50%;
+                    width: 24px;
+                    height :24px;
+                    z-index: -1;
+                    transform :translate( -5px, -4px );
+                }
+            }
+            .sat{
+                color : g.$color-cornflowerblue;
+                &:before{
+                    background-color : g.$color-aliceblue;
+                }
+            }
+            .sun{
+                color : g.$color-lightcoral;
+                &:before{
+                    background-color : g.$color-lightpink;
+                }
+            }
+            td{
+                padding-block: 16px;
+                padding-inline: 10px;
+                border-bottom: 1px solid g.$color-font-b;
+                color : g.$color-main;
+            }
+        }
+    }
+}
+
+
+//  レスポンシブ
+//  タブ
+@include g.mq('-lg') {
+    .p-weeklytable {
+        border-radius: 8px;
+        padding: 20px;
+        filter: drop-shadow(0 4px 4px g.$shadow );
+        width: fit-content;
+    }
+    
+    .p-weeklytable-content {
+        tbody{
+            tr{
+                .time{
+                    min-width: g.vwmm(120);
+                    //@include g.fz(12,12,400);
+                    font-size : g.vwm(11);
+                    line-height:g.vwm(11);
+                }
+                th,td{
+                    min-width: g.vwmm(24);
+                    font-size : g.vwm(11);
+                    line-height:g.vwm(11);
+                }
+                th{
+                    padding-block: 8px;
+                    padding-inline: 0px;
+                }
+                .sat,
+                .sun{
+                    &:before{
+                        width: 20px;
+                        height :20px;
+                        transform :translate( -2px, -2px );
+                    }
+                }
+                td{
+                    padding-block: 10px;
+                    padding-inline: 8px;
+                }
+            }
+        }
+    }
+    }
+
+//  SP 767以下
+@include g.mq('-md') {
+.p-weeklytable {
+    border-radius: 8px;
+    padding: 20px;
+    filter: drop-shadow(0 4px 4px g.$shadow );
+}
+
+.p-weeklytable-content {
+    tbody{
+        tr{
+            .time{
+                min-width: 90px;
+                @include g.fz(10,10,400);
+            }
+            th,td{
+                min-width: 20px;
+                @include g.fz(10,10);
+            }
+            th{
+                padding-block: 8px;
+                padding-inline: 0px;
+            }
+            .sat,
+            .sun{
+                &:before{
+                    width: 16px;
+                    height :16px;
+                    transform :translate( -3px, -2px );
+                }
+            }
+            td{
+                padding-block: 10px;
+                padding-inline: 8px;
+            }
+        }
+    }
+}
+    
+}

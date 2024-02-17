@@ -1,0 +1,69 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    タグ
+//  ボタンと少しニュアンスが違う
+//  必ずしもホバーに使われない、ボタンの演出と違う
+//------------------------------------------------
+.c-tag,
+.c-tagh,
+{
+    position : relative;
+    display:flex;
+    align-items:center;
+    transition : opacity 0.3s, color 0.3s, background-color 0.3s;
+    &.--cat{
+        color : g.$color-font-w;
+        background-color : g.$color-main;
+    }
+    &.--line{
+        color : g.$color-main;
+        background-color : g.$color-white;
+        border: 1px solid g.$color-main;
+    }
+    &.--bd{
+        color : g.$color-main;
+        border : 1px solid g.$color-main;
+    }
+    &:not(&.--min){
+        @include g.fz(11,16,500);
+        @include g.ls(0);
+        padding-block : 6px;
+        padding-inline: 12px;
+        border-radius : 12px;
+    }
+    &.--min{
+        @include g.fz(10,15,500);
+        @include g.ls(0);
+        padding-block : 1px 2px;
+        padding-inline: 8px;
+        border-radius : 10px;
+    }
+}
+
+.c-tagh{
+    &:hover{
+        opacity : 0.8;
+    }
+}
+
+
+//  レスポンシブ
+//  PC版のみのCSS 768px以上
+@include g.mq('-lg') {    
+}
+
+//  SP 767以下
+@include g.mq('-md') {
+.c-tag{
+    //  全てmin化
+    &:not(&.--min),
+    &.--min{
+        @include g.fz(10,15,500);
+        @include g.ls(0);
+        padding-block : 1px 2px;
+        padding-inline: 8px;
+        border-radius : 10px;
+    }
+}
+
+}

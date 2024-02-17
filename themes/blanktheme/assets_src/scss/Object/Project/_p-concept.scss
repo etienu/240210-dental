@@ -1,0 +1,187 @@
+@use '../../global' as g;
+.p-concept {
+    overflow: hidden;
+    &.--about{
+        margin-top : 77px;
+        .p-concept__inner {
+            padding-block: g.vwx(77) g.vwx(163);
+        }    
+    }
+    .list{
+        display : flex;
+        flex-direction: column;
+        gap: g.vwx(192);
+    }
+    .item{
+        display:flex;
+        flex-direction : row;
+        &.--rev{
+            .p-concept-img{
+                order: 1;
+                img{
+                    border-top-right-radius : 0;
+                    border-bottom-right-radius : 0;
+                }
+            }
+            .p-concept-txtwrap{
+                order:0;
+            }
+        }
+    }
+
+    .p-concept-bg {
+        position : absolute;
+        display: flex;
+        justify-content: flex-end;
+        &.--about{
+            margin-top: g.vwx(-180);
+        }
+        img{
+            width: g.vwx(1306);
+            aspect-ratio: 1310/726;
+            transform : translateX( 15% );
+        }
+        z-index: -1;
+    }
+    
+    .p-concept__inner {
+        padding-block: g.vwx(180) g.vwx(108);
+        &.--about{
+            padding-block: g.vwx(216) g.vwx(203);
+        }
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .p-concept-img {
+            img{
+                width: g.vwx(640);
+                aspect-ratio: 640/438;
+                border-radius: 20px;
+            }
+        }
+        .p-concept-txtwrap {
+            padding-block: g.vwx(34);
+            padding-inline: g.vwx(95);
+            text-align:left;
+            .sec-ttl {
+                @include g.ls(10);
+                font-size : g.vwx(14);
+                line-height: g.vwx(21);
+                font-weight: bold;
+                margin-bottom : 24px;
+                color: g.$color-main;
+            }
+            .ttl {
+                @include g.ls(8);
+                font-size : g.vwx(28);
+                line-height: g.vwx(44);
+                font-weight: bold;
+                margin-bottom: g.vwx(36);
+            }            
+            .txt {
+                @include g.ls(0);
+                font-size : max(g.vwx(14), 12px );
+                line-height: g.vwx(25);
+                font-weight: 500;
+                margin-bottom: g.vwx(37);
+            }
+        }
+    }    
+}
+
+
+
+//  レスポンシブ
+//  SP 767以下
+@include g.mq('-md') {
+.p-concept {
+    padding-bottom : 0px;
+    &.--about{
+    }
+    .list{
+        gap: 100px;
+    }
+    .item{
+        flex-direction : column;
+        align-items: center;
+        &.--rev{
+            .p-concept-img{
+                order: 1;
+                picture{
+                    justify-content: flex-end;
+                }
+                img{
+                    border-top-right-radius : 0;
+                    border-bottom-right-radius : 0;
+                }
+            }
+            .p-concept-txtwrap{
+                order:0;
+            }
+        }
+    }
+
+
+    .p-concept-bg {
+        position : absolute;
+        display: flex;
+        justify-content: flex-end;
+        img{
+            width: g.vws(556);
+            aspect-ratio: 556/309;
+            transform : translateX( 2% );
+        }
+    }
+    
+    .p-concept__inner {
+        padding-block: 111px 98px;
+        &.--about{
+            padding-block: 110px 100px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 41px;
+        .p-concept-img {
+            order : 1;
+            width: 100%;
+            picture{
+                display:flex;
+                justify-content: flex-start;
+            }
+            img{
+                width: calc(100% - 41px );
+                aspect-ratio: 334/230;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+        .p-concept-txtwrap {
+            order : 0;
+            width: calc( 100% - 40px );
+            padding-block: 0px 0;
+            padding-inline: 0px;
+            text-align:left;
+            .sec-ttl {
+                @include g.fz(11,16,bold);
+                @include g.ls(10);
+                margin-bottom : 14px;
+            }
+            .ttl {
+                @include g.fz(20,32,bold);
+                @include g.ls(8);
+                margin-bottom: 27px;
+            }            
+            .txt {
+                @include g.fz(14,24);
+                @include g.ls(0);
+                margin-bottom: 37px;
+            }
+        }
+    
+    }
+    
+}
+}

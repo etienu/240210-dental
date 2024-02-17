@@ -1,0 +1,72 @@
+@use '../../global' as g;
+.p-cvbtn {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: fit-content;
+    margin :auto;
+    .box{
+        position:absolute;
+        margin:auto;
+        width: 664px;
+        height: 160px;
+        z-index:1;
+        transform: translate(6px, -84px);
+    }
+    .txt{
+        width: 743px;
+        padding: 15px 0;
+        box-shadow: 0 4px 4px g.$shadow2;
+        transition : box-shadow 0.3s, transform 0.3s,opacity 0.3s;
+        img{
+            width: 551px;
+            height: 188px;
+        }
+    }
+    &:hover{
+        .txt{
+            box-shadow: 0 0px 0px g.$shadow2;
+            opacity: 0.7;
+        }
+        transform : translateY( 4px );
+    }
+    transition : box-shadow 0.3s, transform 0.3s;
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//  PC版
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+    
+}
+
+//  SP 767以下
+@include g.mq('-md') {
+    .p-cvbtn {
+        .box{
+            width: g.vwms(321);
+            height: g.vwms(72);
+            transform: translate(0px, g.vwms(-34));
+        }
+        .txt{
+            width: g.vwms(320);
+            padding: 2.5px 0;
+            box-shadow: 1px 7px 5px g.$shadow2;
+            img{
+                width: g.vwms(261);
+                height: g.vwms(90);
+            }
+        }
+    }    
+}
+
+@include g.mq('-xs') {
+}

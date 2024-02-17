@@ -1,0 +1,118 @@
+@use '../../global' as g;
+
+//    アイコン
+.c-icon {
+    display: inline-block;
+    position : relative;
+    transition : background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    $icon-col: '393939';
+    &.--home{
+        @include g.icon('home', $icon-col );
+    }
+    &.--build{
+        @include g.icon('build', $icon-col );
+    }
+    &.--document{
+        @include g.icon('document', $icon-col );
+    }
+    &.--peoples{
+        @include g.icon('peoples', $icon-col );
+    }
+    &.--edit{
+        @include g.icon('edit', $icon-col );
+    }
+    &.--email{
+        @include g.icon('email', $icon-col );
+    }
+    &.--tel{
+        @include g.icon('tel', '1391e6' );
+    }
+    &.--pcs{
+        @include g.icon('pcs', 'fff' );
+    }
+    &.--arrow-right{
+        @include g.icon('arrow-right', 'fff' );
+    }
+    &.--circle-left{
+        @include g.icon('circle-left', 'fff' );
+    }
+    &.--circle-right{
+        @include g.icon('circle-right', 'fff' );
+    }
+    &.--select-arrow{
+        @include g.icon('select-arrow', '393939' );
+    }
+    &.--paper{
+        @include g.icon('paper', '393939' );
+    }
+    &.--folder{
+        @include g.icon('folder', '393939' );
+    }
+    &.--pen{
+        @include g.icon('pen', '1391e6' );
+    }
+    &.--calender{
+        @include g.icon('calender', '393939' );
+    }
+    &.--triangle-arrow-right{
+        @include g.icon('triangle-right', '1391e6' );
+    }
+    &.--angle-right{
+        @include g.icon('angle-right', '1391e6' );
+    }
+    &.--favicon{
+        @include g.icon('favicon', '1391e6' );
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+@include g.mq('md-') {
+}
+//  タブ
+@include g.mq('-lg') {
+    .c-icon {
+        &.--tel{
+            $icon-tel-col : '1391e6';
+            @include g.iconimg('tel', $icon-tel-col, 'tab' );
+        }    
+    }
+}
+@include g.mq('-md') {
+    .c-icon {
+    //  SPかつ白フラグで白文字
+    &.--spwhite{
+        $icon-col: 'fff';
+        &.--home{
+            @include g.iconimg('home', $icon-col );
+        }
+        &.--build{
+            @include g.iconimg('build', $icon-col );
+        }
+        &.--document{
+            @include g.iconimg('document', $icon-col );
+        }
+        &.--peoples{
+            @include g.iconimg('peoples', $icon-col );
+        }
+        &.--edit{
+            @include g.iconimg('edit', $icon-col );
+        }
+        &.--email{
+            @include g.iconimg('email', $icon-col );
+        }
+    }
+    &.--tel{
+        $icon-tel-col : '1391e6';
+        @include g.iconimg('tel', $icon-tel-col, 'sp' );
+
+    }
+}
+}
+
+//  SP 767以下
+@include g.mq('-md') {
+}

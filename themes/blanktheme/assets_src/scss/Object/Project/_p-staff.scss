@@ -1,0 +1,406 @@
+@use '../../global' as *;
+
+.p-staff {
+    margin-top: 80px;
+    margin-bottom : 160px;
+}
+
+.p-staff__inner {
+    flex-direction : column;
+    justify-content: center;
+    align-items:center;
+    max-width: calc($layout-width-inner-lg + 40px);
+}
+
+.p-staff-director-wrap{
+    display:flex;
+    flex-direction : row;
+    align-items: flex-start;
+    gap: vwml(80);
+    margin-top: 60px;
+    margin-bottom : 160px;
+    width: 100%;
+    max-width: calc(100% - 40px );
+    text-align:left;
+    .l-heading{
+    }
+    .txtwrap{
+        display:flex;
+        flex-direction:column;
+        max-width: 460px;
+        .leadwrap{
+            display:flex;
+            flex-direction: column;
+            margin-top:36px;
+            gap:2rem;
+            .txt{
+                @include fz(14,24,500);
+                @include ls(0);
+            }
+        }
+        .namewrap{
+            display:flex;
+            flex-direction : column;
+            margin-top: 15px;
+            text-align: right;
+            gap:1rem;
+            .txt{
+                @include fz(14,14,500);
+                @include ls(0);
+            }
+        }
+        .biowrap{
+            margin-top: 56px;
+            font-weight: 500;
+            gap: 15px;
+            &.--second{
+                margin-top : 30px;
+            }
+            .ttl{
+                width: 100%;
+                padding-bottom: 6px;
+                border-bottom : 1px solid $color-font-b;
+            }
+            .bio{
+                display:flex;
+                flex-direction : column;
+                margin-top:15px;
+                gap: 13px;
+            }
+            .row{
+                display:flex;
+                flex-direction : row;
+                gap: 15px;
+            }
+    }
+    }
+    .pic{
+        width: 100%;
+        max-width: 460px;
+        aspect-ratio : 460/613;
+        border-radius: 24px;
+    }
+}
+
+.p-staff-swiper-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow : hidden;
+    margin-bottom : 160px;
+    .swiper{
+            //  3枚分大きく( スライド時の消失対策 )
+            width : calc( 100% + (305px * 3));
+
+        height: 229px;
+        .swiper-wrapper{
+            //margin-left: -152px;//半分ずらす
+            /*デフォルトのイージングを上書き*/
+            transition-timing-function: linear;
+            .swiper-slide{
+                width: 100%;
+                max-width: 305px;
+                height: 229px;
+                .pic{
+                    width: 305px;
+                    overflow:hidden;
+                    img{
+                        width: 305px;
+                        aspect-ratio: 305/229;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.p-staff-listgroup-wrap{
+    max-width: $layout-width-inner-lg;
+    &.--second{
+        margin-top: 60px;
+    }
+    .p-staff-list-wrap{
+        margin-top: 60px;
+        .l-heading{
+            .ttl{
+                width: 100%;
+                text-align:left;
+                padding-bottom : 6px;
+                border-bottom : 1px solid $color-bordergray;
+                @include fz(16,24,bold);
+                @include ls(8);
+            }
+        }
+        .list{
+            margin-top : 40px;
+            display: grid;
+            grid-template-rows : auto;   //  縦
+            grid-template-columns: repeat( 3, vwml(280) );  //  横
+            grid-auto-flow: row;
+            grid-auto-rows:object-fit;
+            column-gap: vwmx(80); // 横間隔
+            row-gap: 60px; // 縦間隔
+            .item{
+                display:flex;
+            }
+            .card{
+                display:flex;
+                flex-direction: column;
+                .pic{
+                    width: vwml(280);
+                    aspect-ratio: 280/280;
+                    border-radius: 20px;
+                    overflow: hidden;
+                }
+                .txtwrap{
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items:center;
+                    gap: 12px;
+                    padding-block : 15px;
+                    
+                    .work{
+                        @include fz(12,18,500);
+                        @include ls(8);
+                    }
+                    .name{
+                        @include fz(18,27,bold);
+                        @include ls(8);
+                        text-align:left;
+                        max-width:50%;
+                    }
+                }
+                .tbl{
+                    .row{
+                        display: flex;
+                        flex-direction : row;
+                        @include fz(14,21,500);
+                        @include ls(0);
+                        width: 100%;
+                        border-bottom : 1px solid $color-white;
+                        text-align:left;
+                        .tbl_ttl,
+                        .tbl_txt{
+                            width: 50%;
+                            padding-block : 17px;
+                            padding-inline: vwmx(20);
+                        }
+                        .tbl_ttl{
+                            background-color: $color-sub2;
+                        }
+                        .tbl_txt{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+//  タブ以下
+@include mq('-lg') {
+    .p-staff-listgroup-wrap{
+        .p-staff-list-wrap{
+            .list{
+                column-gap: vwml(30); // 横間隔
+                grid-template-columns: repeat( 3, vwml(300) );  //  横
+                .card{
+                    .pic{
+                        width: vwml(300);
+                    }
+                    .tbl{
+                        .row{
+                            .tbl_ttl,
+                            .tbl_txt{
+                                padding-inline: vwml(8);
+                            }
+                            .tbl_ttl{
+                                width: 45%;
+                            }
+                            .tbl_txt{
+                                width: 55%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+.p-staff {
+    margin-top: 60px;
+    margin-bottom : 100px;
+}
+
+.p-staff__inner {
+    max-width: calc(100% - 40px);
+}
+
+.p-staff-director-wrap{
+    display:flex;
+    flex-direction : column;
+    align-items: center;
+    gap: 0px;
+    margin-top: 36px;
+    margin-bottom : 100px;
+    text-align:left;
+    max-width: none;
+    .txtwrap{
+        .l-heading{
+            margin-bottom :28px;
+        }
+        display:contents;
+        .txt-block-top{
+            order: 0;
+            margin-bottom : 40px;
+            .leadwrap{
+                display:flex;
+                flex-direction: column;
+                margin-top:0px;
+                margin-bottom : 34px;
+                gap:2rem;
+                .txt{
+                    @include fz(14,24,500);
+                    @include ls(0);
+                }
+            }
+            .namewrap{
+                display:flex;
+                flex-direction : column;
+                margin-top: 15px;
+                text-align: right;
+                gap:1rem;
+                .txt{
+                    @include fz(14,14,500);
+                    @include ls(0);
+                }
+            }
+        }
+        .txt-block-bottom{
+            order: 2;
+            width: 100%;
+            .biowrap{
+                margin-top: 0px;
+                font-weight: 500;
+                gap: 15px;
+                &.--second{
+                    margin-top : 30px;
+                }
+                .ttl{
+                    width: 100%;
+                    padding-bottom: 6px;
+                    border-bottom : 1px solid $color-font-b;
+                }
+                .bio{
+                    display:flex;
+                    flex-direction : column;
+                    margin-top:15px;
+                    gap: 13px;
+                }
+                .row{
+                    display:flex;
+                    flex-direction : row;
+                    gap: 15px;
+                }
+            }
+        }
+    }
+    .pic{
+        order: 1;
+        width: 100%;
+        max-width: 460px;
+        aspect-ratio : 335/446;
+        margin-bottom : 40px;
+    }
+}
+
+.p-staff-swiper-wrap{
+    margin-bottom : 100px;
+    .swiper{
+        //  3枚分大きく( スライド時の消失対策 )
+        width : calc( 100% + (305px * 3));
+        height: 150px;
+        .swiper-wrapper{
+            margin-left: -100px;//半分ずらす
+            .swiper-slide{
+                width: 100%;
+                max-width: 200px;
+                height: 150px;
+                .pic{
+                    width: 200px;
+                    overflow:hidden;
+                    img{
+                        width: 200px;
+                        aspect-ratio: 200/150;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.p-staff-listgroup-wrap{
+    max-width: calc(100% - 40px);
+    &.--second{
+        margin-top: 40px;
+    }
+    .p-staff-list-wrap{
+        margin-top: 36px;
+        .l-heading{
+            .ttl{
+                padding-bottom : 7px;
+            }
+        }
+        .list{
+            margin-top : 40px;
+            grid-template-columns: vwms(335);  //  横
+            grid-auto-flow: row;
+            column-gap: 0; // 横間隔
+            row-gap: 56px; // 縦間隔
+            .card{
+                display:flex;
+                flex-direction: column;
+                .pic{
+                    width: vwms(335);
+                    aspect-ratio: 335/335;
+                }
+                .txtwrap{
+                    padding-block : 20px;                    
+                    .work{
+                    }
+                    .name{
+                        max-width:none;
+                    }
+                }
+                .tbl{
+                    .row{
+                        .tbl_ttl,
+                        .tbl_txt{
+                            padding-inline: vwms(20);
+                        }
+                        .tbl_ttl{
+                            width: 50%;
+                        }
+                        .tbl_txt{
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+}

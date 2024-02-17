@@ -1,0 +1,178 @@
+@use '../../global' as *;
+//  top - おすすめ
+.p-article-box-wrap{
+    .list{
+        display: grid;
+        grid-template-rows : repeat( 2, vwml(315) );   //  縦
+        grid-template-columns: repeat( 3, vwml(310) );  //  横
+        grid-auto-flow: row;
+        grid-auto-rows:object-fit;
+        column-gap: 40px; // 横間隔
+        row-gap: 60px; // 縦間隔
+    }
+}
+.p-article-box{
+    position : relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-height: 315px;
+    border-radius : 24px;
+    box-shadow: 0 4px 4px $shadow5;
+    .pic{
+        overflow : hidden;
+        border-top-left-radius : 24px;
+        border-top-right-radius : 24px;
+        width: 100%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 300/188;
+            object-fit : cover;
+            transition  : transform 0.3s;
+        }
+    }
+    .textwrap{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        padding-inline : 24px;
+        padding-block: vwml(23) vwml(12);
+        .catwrap{
+            position:absolute;
+            left: 24px;
+            top: -16px;
+            display: flex;
+            flex-direction :row;
+            gap: 8px;
+        }
+        .ttl{
+            @include fz(16,24, 500);
+            @include ls(0);
+            font-size: vwml(16);
+            line-height:vwml(24);
+            margin-bottom : vwml(4);
+            text-align: left;
+            transition : color 0.3s;
+            //  3行制限
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+        .tm{
+            @include fz(11,16,500);
+            @include ls(0);
+            color : $color-gray;
+        }
+    }
+    &.--new{
+        &:after{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position:absolute;
+            content : "NEW";
+            width: 60px;
+            height : 60px;
+            left: -10px;
+            top: -20px;
+            @include fz(16,24,bold);
+            @include ls(0);
+            background-color: $color-lightcoral;
+            border-radius: 50%;
+            padding : 6px 12px;
+            color : $color-font-w;
+        }
+    }
+    &:hover{
+        .pic{
+            img{
+                transform : scale(1.1);
+            }
+        }
+        .textwrap{
+            .ttl{
+                color : $color-main;
+            }
+        }
+        cursor : pointer;
+    }
+}
+
+
+
+//  レスポンシブ
+//  SP 767以下
+@include mq('-md') {
+.p-article-box-wrap{
+    margin-block: 40px 40px;
+    .list{
+        display: grid;
+        grid-template-rows : repeat( 6, vwms(109) );   //  縦
+        grid-template-columns: 100%;  //  横
+        grid-auto-flow: column;
+        grid-auto-rows:object-fit;
+        row-gap: 12px; // 縦間隔
+    }
+}
+.p-article-box{
+    position : relative;
+    display: flex;
+    flex-direction: row;
+    border-radius : 0;
+    box-shadow: none;
+    .pic{
+        width: vwms(133);
+        height: vwms(101);
+        border-top-left-radius : 0;
+        border-top-right-radius : 0;
+        img{
+            aspect-ratio: 133/101;
+        }
+    }
+    .textwrap{
+        flex: 1;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        padding-inline : 10px 8px;
+        padding-block: 6px 8px;
+        .catwrap{
+            position:relative;
+            left: 0px;
+            top: 0px;
+        }
+        .ttl{
+            @include fz(14,20, 500);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; //   2行
+            overflow: hidden;                    
+            margin-bottom : 7px;
+        }
+        .tm{
+            @include fz(11,16,500);
+        }
+    }
+    &.--new{
+        &:after{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position:absolute;
+            content : "NEW";
+            width: 40px;
+            height : 40px;
+            left: -10px;
+            top: -20px;
+            @include fz(10,15,bold);
+        }
+    }
+}
+
+}

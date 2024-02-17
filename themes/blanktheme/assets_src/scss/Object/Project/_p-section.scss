@@ -1,0 +1,86 @@
+@use '../../global' as g;
+//  section
+.p-section-top-bg{
+    width: 100%;
+    background-image : url( "../img/common/sec-bg-top.svg" );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1280/203;
+    z-index: 0;
+    transform : translateY(1px);
+}
+
+.p-section-bottom-bg{
+    position : relative;
+    width: 100%;
+    background-image : url( "../img/common/sec-bg-bottom1.svg" );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1280/97;
+    z-index: 0;
+    margin-top : 0px;
+    &:before{
+        position: absolute;
+        content: "";
+        left : 40px;
+        top : -56px;
+        width: 57px;
+        height: 56px;
+        background-image : url( "../img/common/deco-kirakira2-w.svg" );
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 57/56;
+        z-index: 1;    
+    }
+    &:after{
+        position: absolute;
+        content: "";
+        right : 40px;
+        top : -117px;
+        width: 125px;
+        height: 138px;
+        background-image : url( "../img/common/deco-kirakira-w.svg" );
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 57/56;
+        z-index: 1;
+    
+    }
+}
+
+
+
+
+
+//  レスポンシブ
+//  SP 767以下
+@include g.mq('-md') {
+//  section
+.p-section-top-bg{
+    background-image : url( "../img/common/sp/bg-top-sp.svg" );
+    aspect-ratio: 375/88;
+}
+    
+.p-section-bottom-bg{
+    aspect-ratio: 375/28;
+    z-index: 0;
+    background-size: contain;
+    &:before{
+        left : 12px;
+        top : -37px;
+        width: 24px;
+        height: 25px;
+    }
+    &:after{
+        right : 7px;
+        top : -54px;
+        width: 56px;
+        height: 60px;
+    }
+}
+
+}

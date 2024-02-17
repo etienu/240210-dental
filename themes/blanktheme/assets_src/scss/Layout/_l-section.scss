@@ -1,0 +1,163 @@
+@use '../global' as g;
+//-------------------------------------------
+//
+//  汎用レイアウト枠組み
+//  l- layout自体が枠組みの意味なので余計な単語を省く
+//
+//-------------------------------------------
+@mixin l-sec--flags() {
+    &.--left{  justify-content: flex-start;  }
+    &.--right{ justify-content: flex-end; }
+    &.--center{justify-content: center;   }
+}
+@mixin l-sec--pcflags() {
+    &.--pc-left{  justify-content: flex-start;  }
+    &.--pc-right{ justify-content: flex-end; }
+    &.--pc-center{justify-content: center; }
+}
+@mixin l-sec--spflags() {
+    &.--sp-left{  justify-content: flex-start;  }
+    &.--sp-right{ justify-content: flex-end; }
+    &.--sp-center{justify-content: center;  }
+}
+
+.l-main{
+    position: relative;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items : center;
+    //  2カラム用
+    &.--two{
+         // サイドバーの固定幅を引く
+         width: calc( g.vwml(1000) - 300px );
+         margin-right: 20px;
+    }
+}
+.l-sidebar{
+    // [camp]1280 [inner]1009 [main]679 [side]300 [gap]30
+    position: relative;
+    width: 300px;
+    max-width: 300px;
+    display:flex;
+    flex-direction:column;
+    align-items : center;
+    flex:1;
+    gap: 60px;
+}
+
+.l-section {
+    position: relative;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items : center;
+    //  セクションによって隠したくない時もある為
+    &.--ofh{
+        overflow: hidden;
+    }
+}
+
+//  セクションヘッダー
+.l-heading {
+    position: relative;
+    width: 100%;
+    display:flex;
+    @include l-sec--flags();
+    //  セクションによって隠したくない時もある為
+    &.--ofh{
+        overflow: hidden;
+    }
+    &.--under{
+        align-items:center;
+        padding-bottom: 8px;
+        border-bottom : 1px solid g.$color-font-b;
+        text-align:left;
+        gap:10px;
+        margin-bottom: 20px;
+    }
+}
+
+//  セクションボディ
+//  ボディは見だしとフッター(CVボタン等)の間、コンテンツ部分
+//  幅は最大とする
+.l-body {
+    position:relative;
+    margin:auto;
+    //max-width: g.$layout-width-inner;   //  カンプ幅
+    max-width: 100%;
+    width: 100%;
+    //  セクションによって隠したくない時もある為 
+    &.--ofh{
+        overflow: hidden;
+    }
+}
+
+//  汎用インナー
+//  インナーはボディ中、カンプで統一された幅を指定する場合に使用
+.l-inner {
+    position:relative;
+    max-width: g.$layout-width-inner;   //  カンプ幅
+    width: 100%;
+    margin:auto;
+    display:flex;
+}
+
+
+//  汎用ボタン枠
+.l-btn{
+    position: relative;
+    width: 100%;
+    display:flex;
+    @include l-sec--flags();
+}
+
+//  汎用枠
+.l-wrapper{
+    position: relative;
+    width: 100%;
+    display:flex;
+    @include l-sec--flags();
+}
+
+//  レスポンシブ
+//  PC版のみのCSS 768px以上
+@include g.mq('md-') {
+    .l-heading,
+    .l-inner,
+    .l-btn,
+    .l-wrapper{
+        @include l-sec--pcflags();
+    }
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//  SP 767以下
+@include g.mq('-md') {      
+    .l-heading,
+    .l-inner,
+    .l-btn,
+    .l-wrapper{
+        @include l-sec--spflags();
+    }
+
+    .l-main{
+        //  2カラム用
+        &.--two{
+            width: 100%;
+            margin-right:inherit;
+        }
+    }
+    .l-sidebar{
+        width: 100%;
+        max-width: none;
+    }
+    
+        
+    
+}

@@ -1,0 +1,34 @@
+@use '../../global' as *;
+//
+.p-news{
+    margin-block : 80px 160px;
+}
+
+.p-news__inner{
+    justify-content: center;
+    align-items:flex-start;
+    max-width: $layout-width-inner;
+    padding-inline: 20px;
+}
+
+.p-news-main{
+    width: 100%;
+    .list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 800px;
+        .item{
+            display : flex;
+            flex-direction : row;
+            justify-content : space-between;
+            align-items : center;
+            width: 100%;
+        }
+    }
+}
+
+//  レスポンシブ
+//  SP 767以下
+@include mq('-md') {
+}

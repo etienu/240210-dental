@@ -1,0 +1,210 @@
+@use '../../global' as *;
+
+.p-article{
+    width: 100%;
+    overflow: hidden;
+    text-align:left;
+    margin-bottom: 72px;
+    .l-heading{
+        flex-direction :column;
+        h2{
+            @include fz(28,40,bold);
+            @include ls(8);
+            margin-bottom: 20px;
+        }
+        .headinfowrap{
+            display:flex;
+            align-items: center;
+            flex-wrap: wrap;
+            row-gap: 8px;
+            flex-direction:row;
+            margin-bottom: 48px;
+            .tim{
+                color : $color-main;
+                @include fz(16,24,500);
+                @include ls(0);
+                margin-left: 6px;
+                margin-right: 32px;
+            }
+            .catwrap{
+                display: flex;
+                flex-direction :row;
+                flex-wrap:wrap;
+                gap: 8px;
+            }
+        }
+    }
+    .p-article-content{
+        h2,
+        h3,
+        h4{
+            position : relative;
+            @include ls(8);
+            width: 100%;
+            color : $color-main;
+        }
+
+        h2{
+            @include fz(24,36,bold);
+            margin-block: 20px 28px;
+            padding-left:20px;
+            &:before{
+                position : absolute;
+                display:block;
+                content :"";
+                height: 100%;
+                width: 8px;
+                left: 0;
+                top : 0;
+                background-color: $color-main;
+            }
+        }
+        h3{
+            @include fz(20,30,bold);
+            margin-block: 20px 20px;
+            padding-bottom : 5px;
+            border-bottom : 1px solid $color-main;
+        }
+        h4{
+            @include fz(16,24,bold);
+            margin-block: 20px 20px;
+        }
+        p{
+            margin-bottom : 40px;
+        }
+        p,
+        figure{
+            //  記事中の画像の扱い
+            max-width: 100%;
+            margin-inline:auto;
+            img{
+                width:auto;
+                height:auto;
+                max-width: 100%;
+                &.alignright{
+                    float: right;
+                    margin: .5em 0 .5em 1em;
+                }
+                &.alignleft{
+                    float: left;
+                    margin: .5em 1em .5em 0;
+                }
+            }
+            &.alignleft{
+                float: left;
+                margin: .5em 1em .5em 0;
+            }
+            &.alignright{
+                float: right;
+                margin: .5em 0 .5em 1em;
+        }
+            
+
+        }
+        a{
+            color :$color-main;
+            text-decoration: underline;
+        }
+        ul{
+            margin-left:14px;
+            gap: 3px;
+            li{
+                position : relative;
+                @include fz(16,30,500);
+                @include ls(0);
+                &:before{
+                    position :relative;//absolute;
+                    content:"・";
+                    left: 0;
+                    top : 2px;
+                    width: auto;
+                    height: auto;
+                    margin-right: 2px;
+                    @include fz(20,30,bold);
+                    @include ls(0);
+                }
+            }
+        }
+        table{
+            border : 1px solid $color-bordergray;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            thead,
+            tbody{
+                tr{
+                    th,td{
+                        padding-block : 8px;
+                        padding-inline : 8px;
+                    }
+                    th{
+                        white-space: nowrap;
+                    }
+                    border-bottom : 1px solid $color-lightgray;
+                }
+            }
+            thead{
+                background-color : $color-sub2;
+            }
+        }
+        //  他
+        .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption {
+            margin : auto;
+        }
+    }// .p-article-content
+}// .p-article
+
+//  ページネーション
+.p-article-pagination__wrap{
+    display: flex;
+    flex-direction : row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    overflow:hidden;
+    .p-article-pagination__left,
+    .p-article-pagination__right,
+    .p-article-pagination__archive{
+        @include fz(14,21,500);
+        @include ls(0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-block: 7px 8px;
+        padding-inline : 16px;
+        gap: 6px;
+        border-radius: 4px;
+        transition : opacity 0.3s;
+        //  文字数制限
+        span{
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    .p-article-pagination__left,
+    .p-article-pagination__right{
+        color : $color-font-w;
+        background-color: $color-main;
+    }
+    .p-article-pagination__archive{
+        color : $color-main;
+        background-color: $color-white;
+        border : 1px solid $color-main;
+    }
+}
+
+//----------------------------
+//  タブ以下
+@include mq('-lg') {
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+}

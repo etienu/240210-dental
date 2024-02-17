@@ -1,0 +1,185 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    ボタン
+//------------------------------------------------
+.c-btn{
+    position : relative;
+    display:flex;
+    align-items:center;
+    @include g.fz(14,21,500);
+    @include g.ls(0);
+    color : g.$color-main;
+    padding-block : 11px;
+    padding-inline: 46px;
+    border: 1px solid g.$color-main;
+    border-radius : 24px;
+    background-color : g.$color-white;
+    transition : opacity 0.3s, color 0.3s, background-color 0.3s;
+    &.--min{
+        padding-block : 4px;
+        padding-inline: 20px;
+        @include g.fz(12,18,500);
+    }
+    &:not(&.--noicon){
+        &:after{
+            position:absolute;
+            content:"";
+            display:flex;
+            align-items: center;
+            right: 12px;
+            @include g.icon( 'arrow-right' , '1391e6' );
+            transition : opacity 0.3s, background-color 0.3s, transform 0.3s;
+        }
+    }
+    &:hover{
+        background-color : g.$color-main;
+        color :g.$color-font-w;
+        &:not(&.--noicon){
+            &:after{
+                transform : translateX( 2px );
+                @include g.icon( 'arrow-right' , 'ffffff' );
+            }
+        }
+    }
+}
+
+
+.c-btn__cv{
+    position : relative;
+    display:flex;
+    align-items:center;
+    @include g.fz(16,24,500);
+    @include g.ls(0);
+    padding-block : 16px;
+    padding-inline: 59px;
+    border-radius : 30px;
+    transition : opacity 0.3s, color 0.3s, background-color 0.3s;
+    &:before{
+        transition : color 0.3s, background-color 0.3s;
+    }
+    &.--pcs{
+        color : g.$color-font-w;
+        background-color : g.$color-main;
+        border: 1px solid g.$color-main;
+        &:before{
+            content:"";
+            @include g.icon( 'pcs','ffffff' );
+            margin-right:6px;
+        }
+        &:hover{
+            color :g.$color-main;
+            background-color : g.$color-white;
+            &:before{
+                background-color : g.$color-main;
+
+            }
+        }
+    }
+    &.--email{
+        color : g.$color-main;
+        background-color : g.$color-font-w;
+        border: 1px solid g.$color-main;
+        &:before{
+            content:"";
+            @include g.icon( 'email','1391e6' );
+            margin-right:6px;
+        }
+        &:hover{
+            color :g.$color-font-w;
+            background-color : g.$color-main;
+            &:before{
+                background-color : g.$color-white;
+            }
+        }
+    }
+    &:hover{
+        cursor : pointer;
+    }
+}
+
+
+.c-btn__reserv {
+    display: flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items: center;
+    position : relative;
+    background-color : g.$color-main;
+    color :g.$color-font-w;
+    transition :  background-color 0.3s, opacity 0.3s;
+    border-radius: 8px;
+    width: 100%;
+    gap: 9px;
+    span{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        @include g.fz( 12,16,bold );
+        @include g.ls( 0 );
+        b{
+            @include g.fz( 16,22,bold );
+        }
+    }
+    padding-block : 4px;
+    padding-inline : 20px;
+    &:hover{
+        cursor:pointer;
+        //opacity: 0.8;
+        background-color: g.$color-sub1;
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('-lg') {
+.c-btn__cv{
+    @include g.fz(16,21,400);
+    @include g.ls(0);
+    padding-block : 12px;
+    transition : opacity 0.3s;
+    &.--pcs{
+        padding-inline: 24px 24px;
+    }
+    &.--email{
+        padding-inline: 24px;
+    }
+}
+     
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+    .c-btn__cv{
+        @include g.fz(14,21,400);
+        @include g.ls(0);
+        padding-block : 8px;
+        transition : opacity 0.3s;
+        &.--pcs{
+            padding-inline: 30px 25px;
+            &:before{
+                content:"";
+                @include g.icon( 'pcs','ffffff','sp' );
+                margin-right:6px;
+            }
+        }
+        &.--email{
+            padding-inline: 20px;
+            &:before{
+                content:"";
+                @include g.icon( 'email','1391e6','sp' );
+                margin-right:6px;
+            }
+        }
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    
+}

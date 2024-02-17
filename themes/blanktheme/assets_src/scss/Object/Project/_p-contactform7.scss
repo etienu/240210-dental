@@ -1,0 +1,500 @@
+@use '../../global' as *;
+
+/******************************/
+/** contact form 7の装飾 **/
+/******************************/
+/*　フォーム全体　*/
+.wpcf7{
+    max-width: 728px;
+    width: 100%;
+}
+.wpcf7-form-control-wrap{
+    width: 100%;
+}
+#cf7-area {
+    width:100%;
+    margin: 0 auto;
+    border-top : 1px solid $color-formbordergray;
+    @include fz(16,24,500);
+    @include ls(0);
+}
+
+.cf7-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block : 28px;
+    border-bottom : 1px solid $color-formbordergray;
+}
+
+.cf7-q {
+    width: 30%;
+    margin: 0 0 0 10px;
+    text-align:left;
+    label{
+        display:flex;
+        flex-direction : row;
+        align-items: flex-start;
+    }
+    .ttl{
+        display: flex;
+        flex-direction :column;
+        .sub{
+            @include fz(11,16,500);
+            @include ls(0);
+            color : $color-gray;
+        }
+    }
+}
+
+.cf7-a {
+    width: auto;
+    flex: 1;
+    display: flex;
+    flex-direction : column;
+    justify-content: flex-start;
+    gap: 20px;
+    p{
+        display: flex;
+        flex-direction:column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+/*　見出し　*/
+.form-heading
+{
+    width: 100%;
+    background-color: #191970;
+    border-left: 1em solid #6495ED;
+    border-radius: 2px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1em .8em;
+    margin: 0 0 2em;
+}
+
+.form-heading p {
+    margin: 0;
+}
+
+/* 各項目共通 */
+#cf7-area label{
+    font-weight:bold;
+}
+
+#cf7-area input[type="text"],
+#cf7-area input[type="email"],
+#cf7-area input[type="tel"],
+#cf7-area input[type="date"],
+#cf7-area textarea,
+#cf7-area select {
+    background: $color-forminputgray;
+    border: 1px solid $color-forminputgray;
+    width:488px;
+    //max-width: 488px;
+    margin-left:10px;
+    text-align: left;
+    padding-block : 12px;
+    padding-inline: 16px;
+    border-radius: 4px;
+    
+}
+
+#cf7-area input[type="text"]:focus,
+#cf7-area input[type="email"]:focus,
+#cf7-area input[type="tel"]:focus,
+#cf7-area textarea:focus {
+    background: $color-sub2;
+    border: 1px solid $color-sub1;
+    outline: 0;
+}
+
+#cf7-area input[type="text"]::placeholder,
+#cf7-area input[type="email"]::placeholder,
+#cf7-area input[type="tel"]::placeholder,
+#cf7-area input[type="date"]::placeholder,
+#cf7-area textarea::placeholder {
+    color : $color-lightgray;
+}
+
+#cf7-area input[type="checkbox"],
+#cf7-area input[type="radio"]{
+    appearance: auto;
+}
+
+.cf7-a-date,
+#cf7-area input[type="date"]::before,
+#cf7-area input[type="checkbox"],
+#cf7-area input[type="radio"]{
+    &:hover{
+        cursor :pointer;
+    }
+}
+.cf7-a-select select,
+.cf7-a-select:after{
+        cursor :pointer;
+}
+
+
+#cf7-area .wpcf7-radio,
+#cf7-area .wpcf7-checkbox {
+    display: flex;
+    flex-direction : row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 32px;
+    @include fz(14,21,500);
+    @include ls(0);
+}
+
+#cf7-area input[type="tel"]{
+}
+
+//---- 元デザインの非表示化 ----------------
+#cf7-area input[type="radio"],
+#cf7-area input[type="checkbox"]{
+    /* コンテンツの流れから切り離す */
+    position: absolute;
+    /* 誤ったコードに対処するための回避策 */
+    white-space: nowrap;
+    /* 可能な限り文字サイズを小さくするための処理
+    * (スクリーンリーダー中には height と width が 0 のものを無視するため)
+    */
+    width: 1px;
+    height: 1px;
+    /* オーバーフローしているコンテンツを隠す */
+    overflow: hidden;
+    /* 要素サイズを変更しうるプロパティのリセット */
+    border: 0;
+    padding: 0;
+    /* 要素のどの部分が表示されるかを定義するもの */
+    /* 古いブラウザでは使用できない */
+    clip: rect(0 0 0 0);
+    /* 最近のブラウザ用
+    * コンテンツを非表示にする設定  */
+    clip-path: inset(50%); 
+    /* 今現在なぜ-1pxがここで設定されるかは分かっていないそうです。
+    * それに加えていくつか問題もあるそうです 
+    * (参考: https://github.com/h5bp/html5-boilerplate/issues/1985)
+    */
+    margin: -1px;
+
+}
+//---- radio ----------------
+#cf7-area input[type="radio"]{
+    &+.wpcf7-list-item-label{
+        position : relative;
+        padding-left: 20px;
+        cursor: pointer;
+        &:before,
+        &:after{
+            position:absolute;
+            content:"";
+            left: 0;
+            top: 50%;
+            width: 24px;
+            height: 24px;
+            border-radius:50%;
+            transform: translate(-50%,-50%);
+        }
+        &:before{
+            border: 1px solid $color-main;
+            cursor: pointer;
+        }
+        &:after{
+            opacity: 0;
+            background-color : $color-main;
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+        }
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    &:checked{
+        &+.wpcf7-list-item-label{
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+//---- checkbox ----------------
+#cf7-area input[type="checkbox"]{
+    &+.wpcf7-list-item-label{
+        position : relative;
+        padding-left: 20px;
+        cursor: pointer;
+        &:before,
+        &:after{
+            position:absolute;
+            content:"";
+            left: 0;
+            top: 50%;
+            width: 24px;
+            height: 24px;
+            transform: translate(-50%,-50%);
+        }
+        &:before{
+            border: 1px solid $color-main;
+            cursor: pointer;
+        }
+        &:after{
+            opacity: 0;
+            background-color : $color-main;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            clip-path: polygon(80% 0%, 100% 0, 100% 100%, 50% 100%, 50% 80%, 80% 80%, 80% 0% );
+            left: -11px;
+            transform: rotate(45deg) translate(-50%,-50%);
+        }
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    &:checked{
+        &+.wpcf7-list-item-label{
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+//---- select ----------------
+#cf7-area select{
+    -webkit-appearance: none;
+    appearance: none; /* デフォルトの矢印を非表示 */
+}
+/* デフォルトの矢印を非表示(IE用) */
+#cf7-area select::-ms-expand{
+    display: none;
+}
+
+.cf7-a-select{
+    position :relative;
+    &:after{
+        position : absolute;
+        content :"";
+        @include icon('select-arrow', '393939' );
+        right: 16px;
+        top: 50%;
+        transform : translateY(-50%);
+    }
+}
+
+//---- input : date ----------------
+.cf7-a-date{
+    position :relative;
+    &:after{
+        position : absolute;
+        content :"";
+        @include icon('calender', '393939' );
+        right: 20px;
+        top: 50%;
+        transform : translateY(-50%);
+        pointer-events: none;
+    }
+    .wpcf7-date{
+        //  placeholderの値を表示（firefox以外）
+        &:before {
+            content: attr(placeholder);
+            width: 100%;
+            color: #C2C2C2;
+        }
+        //  日付データが空でない
+        &[data-date]{
+            &:before {
+                content: '';
+                width: 0%;
+            }
+
+        }
+    }
+    input[type="date"]:placeholder-shown{
+        display : none;
+        &:before{
+            display : none;
+        }
+    }
+    #date-time-edit{
+        div{
+            span:placeholder-shown{
+                color :red;
+            }
+        }
+    }
+
+    // カレンダーアイコンをinput全体に設定する
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        cursor :pointer;
+    }    
+}
+
+/* Firefox用のスタイル設定 */
+@-moz-document url-prefix() {
+    //  FireFoxのアイコンが消せないので同じものを重ねて
+    //  濃くする
+    .cf7-a-date::after {
+        display: none;
+    }
+}
+
+
+//---- textarea ----------------
+#cf7-area textarea{
+    height:200px;
+    resize:vertical;    //  縦のみ可
+}
+
+.cf7-accept-check{
+    text-align: center;
+    margin: 50px auto;
+}
+
+.cf7-submit {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 72px;
+    text-align: center;
+    p{
+        display: flex;
+        justify-content: center;
+        flex-direction : column;
+    }
+}
+
+#cf7-area input[type="submit"]
+{
+    width: 360px;
+    background-color: $color-white;
+    color: $color-main;
+    border : 1px solid $color-main;
+    border-radius: 28px;
+    @include fz(16,24,500);
+    @include ls(0);
+    padding-block : 16px;
+    transition : color 0.3s, background-color 0.3s;
+}
+
+#cf7-area input[type="submit"]:hover
+{
+    background-color:$color-main;
+    border: 1px solid $color-main;
+    color:$color-font-w;
+}
+
+.cf7-btn{
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* 必須ラベル */
+.cf7-req{
+    display:inline-block;
+    padding-block : 2px 3px;
+    padding-inline: 6px;
+    margin-left: 22px;
+    @include fz(12,18,bold);
+    @include ls(0);
+    background: $color-lightcoral;
+    color: $color-font-w;
+    border-radius: 4px;
+}
+
+
+/* 入力エラーラベル */
+.wpcf7-not-valid-tip{
+    text-align:left;
+    color : $color-lightcoral;
+    margin-left: 8px;
+}
+
+//  送信下のエラーメッセージ
+.wpcf7 form.invalid .wpcf7-response-output{
+    border-color : $color-lightcoral;
+    border-radius : 4px;
+}
+
+
+
+
+
+
+//  レスポンシブ
+@include mq('-lg') {
+}
+    
+//  SP 767以下
+@include mq('-md') {
+#cf7-area{
+    width: calc( 100% - 40px );
+    max-width: 600px;
+}
+.cf7-item {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+#cf7-area label{
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.cf7-q,
+.cf7-a{
+    text-align:left;
+    width: 100%;
+    margin: 0;
+    p{
+        label{
+
+        }
+    }
+}
+
+#cf7-area input[type="text"],
+#cf7-area input[type="email"],
+#cf7-area input[type="tel"],
+#cf7-area input[type="date"],
+#cf7-area select,
+#cf7-area textarea
+{
+    margin-left: 0;
+    width: 100%;
+}
+
+.cf7-submit{
+    margin-top: 78px;
+}
+
+#cf7-area input[type="submit"]
+{
+    width: 273px;
+    border-radius: 24px;
+    @include fz(14,21,500);
+    padding-block : 8px;
+}
+
+        
+}

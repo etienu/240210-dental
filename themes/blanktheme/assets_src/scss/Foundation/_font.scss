@@ -1,0 +1,41 @@
+/*
+//  googlefonts
+*/
+//  M PLUS Rounded 1c
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Light.woff2") format("woff2"),
+    url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Light.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-style: normal;
+    font-weight: 500;
+    font-display: block;
+    src: url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.woff2") format("woff2"),
+    url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-style: normal;
+    font-weight: bold;
+    font-display: block;
+    src: url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Bold.woff2") format("woff2"),
+    url("../webfonts/googlefonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+

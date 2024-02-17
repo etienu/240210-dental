@@ -1,0 +1,57 @@
+//#   variables
+//#   変数
+:root{
+    //  wordpressのfunc中呼び出し設定(../)と、
+    //  直書き(../../)で何故かURLの階層が違うので注意。フォントも同じ。
+    --dir-img : "../img/";
+    //  URL一括調整の為にここで指定。数がない場合の最適解
+    --bgurl-about     : url("../img/about/bg.png" );
+    --bgurl-about-webp: url("../img/about/bg.webp");
+    --bgurl-flow      : url("../img/flow/bg.jpg" );
+    --bgurl-flow-webp : url("../img/flow/bg.webp");
+    --bgurl-our       : url("../img/our/bg.jpg" );
+    --bgurl-our-webp  : url("../img/our/bg.webp");
+    --bgurl-befworrie : url("../img/worries/bef_worrie@2x.png");
+}
+// 基本となるコンテンツ幅
+$layout-width-comp:1280px; //  デザインカンプ幅
+$layout-width-inner:1080px;//   インナー幅 : メイン
+$layout-width-inner-lg:1000px;//   インナー幅 : 中間
+$layout-width-inner-md:700px;//   インナー幅 : 狭い
+$layout-width-comp-sp:375px; //  デザインカンプ幅-sp
+$layout-width-inner-sp:calc( 100% - 40px );//   インナー幅 : sp
+$header-height:80px;
+$header-height-sp:60px;
+
+//  メニューバー二段目がある場合
+$header-second-height-sp:0px;  //  未使用の場合0に
+
+$imgdir : "img";    // トップページ
+$pimgdir : "../img";   //  下層ページ
+
+
+$numberFont: 'Roboto';
+$font-Futura: 'Hind'; //  Futura代用
+
+// googlefont
+$font-roboto: 'Roboto';
+$font-Lato: 'Lato';
+$font-Lora: 'Lora';
+$font-Allura: 'Allura';
+$font-KiwiMaru: 'Kiwi Maru';
+$font-KosugiMaru: 'Kosugi Maru';
+$font-MPlus1p: 'M PLUS 1p';
+$font-MPlusRounded1c: 'M PLUS Rounded 1c';
+$font-YuMincho: 'Yu Mincho';
+$font-Josefin: 'Josefin Sans';
+$font-Montserrat: 'Montserrat';
+$font-Exo: 'Exo';
+$font-Bangla-mn: 'Bangla MN';
+
+$baseFont: $font-MPlusRounded1c, "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+// 用途別フォント
+$font-eng: $font-Montserrat, $baseFont;
+$font-title: $font-YuMincho, $baseFont;
+$font-lead: $baseFont;
+$font-number: $font-Futura, $baseFont;

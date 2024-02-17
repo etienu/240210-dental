@@ -1,0 +1,29 @@
+@use '../../global' as *;
+// ワードプレスプラグインに関する細かい記述
+
+// BreadCrumbs NavXT
+.breadcrumbs{
+    //  複数の行を一列にまとめる
+    display : inline-block;
+    word-break : break-all;
+    width: 100%;
+    text-align:left;
+    margin-top: 13px;
+    max-width: calc(100% - 180px );
+    margin-inline: auto;
+    @include fz(12,18,500);
+    @include ls(0);
+    .home,
+    .post{
+        padding-inline: 8px;
+    }
+    .home{
+        color : $color-lightgray;
+    }
+}
+
+@include mq('-md') {
+.breadcrumbs{
+    max-width: calc(100% - 40px );
+}    
+}

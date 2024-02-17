@@ -1,0 +1,61 @@
+//        色
+/*
+Copilot
+以下のカラーコードに名前をつけますね:
+
+#1391E6: この色は “Cornflower Blue” と呼ばれます。
+#0060A0: この色は “Midnight Blue” と呼ばれます。
+#DFF1FD: この色は “Alice Blue” と呼ばれます。
+#EE5A6D: この色は “Light Coral” と呼ばれます。
+*/
+$color-beige : #e5d5b4;
+$color-brown : #66472b;
+$color-brown-05 : rgba(102,71,43,0.5);
+$color-cornflowerblue: #1391e6;
+$color-aliceblue: #dff1fd;
+$color-midnightblue: #0060a0;
+//$color-green: #52b302;
+//$color-green-hover: rgba( 82, 179, 2, 0.7 );
+$color-lightpink: #ffeded;
+$color-lightcoral: #ee5a6d;
+
+
+$color-main : $color-cornflowerblue;
+$color-main-d: $color-brown;
+$color-sub1 : $color-midnightblue;
+$color-sub2 : $color-aliceblue;
+
+$color-acc : $color-lightcoral;
+
+$color-white: #fff;
+$color-white085: rgba(255,255,255,0.85);
+$color-truewhite: #fff;
+$color-black: #120e19;
+$color-trueblack: #000;
+//$color-lightgray:#d9d9d9;
+$color-lightgray:#c2c2c2;
+$color-bordergray:#707070;
+$color-gray:#888888;
+$color-forminputgray:#F6F6F6;
+$color-formbordergray:#dddddd;
+
+$grad-gold : linear-gradient(90deg, #f9f295 0%, #e0aa3e 33%,#faf398 66%, #b88a44 100%);
+$grad-gold2 : linear-gradient(90deg, #dfbd69 0%, #926f34 100%);
+$grad-goldline : linear-gradient(45deg, #f9f295 0%, #e0aa3e 33%,#faf398 66%, #b88a44 100%);
+$grad-goldline2: linear-gradient(-95deg, #f9f295 0%, #e0aa3e 33%,#faf398 66%, #b88a44 100%);
+$grad-dotted-bw : linear-gradient(90deg, $color-brown 3px, $color-white 3px);
+$shadow : rgba(0,0,0,0.25);
+$shadow2 : rgba(0,0,0,0.3);
+$shadow3 : rgba(0,0,0,0.3);
+$shadow4 : rgba(0,0,0,0.4);
+$shadow5 : rgba(0,0,0,0.5);
+
+//  文字色
+$color-font-w: #fff;
+$color-font-b: #393939;
+$color-font-b-hover: rgba(29,54,35,0.7);
+
+// 場面別
+//$color-btn : $color-green;
+//$color-btn-hover : $color-green-hover;
+$color-hreflink : $color-font-b;

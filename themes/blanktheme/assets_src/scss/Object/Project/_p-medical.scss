@@ -1,0 +1,293 @@
+@use '../../global' as *;
+.p-medical {
+    margin-top: 80px;
+    .tag{
+        @include fz(14,23,bold);
+        @include ls(8);
+        color : $color-font-w;
+        border-radius: 24px;
+        padding-block: 6px;
+        padding-inline: 12px;
+        margin-left: 24px;
+        height: 35px;
+        &.--blue{
+            background-color: $color-main;
+        }
+        &.--red{
+            background-color: $color-lightcoral;
+        }
+    }
+}
+
+.p-medical__inner {
+    margin-top : 60px;
+    justify-content: center;
+}
+
+.p-medical-taglistwrap{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: calc( $layout-width-comp - 120px );
+    gap: 29px;
+    &.--special{
+        margin-top: 80px;
+    }
+    .l-heading{
+        align-items:center;
+    }
+    .p-medical-taglist{
+        display: flex;
+        flex-direction:row;
+        gap: 16px;
+        .p-medical-tagitem{
+            padding-block : 18px;
+            padding-inline : 32px;
+            border-radius: 12px;
+            border : 2px solid $color-main;
+            @include fz(24,36,bold);
+            @include ls(8);
+            color : $color-main;
+            transition : color 0.3s, background-color 0.3s;
+        }
+        .item{
+            a{
+                &:hover{
+                    .p-medical-tagitem{
+                        color : $color-font-w;
+                        background-color: $color-main;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.p-medical-article-wrap{
+    display: flex;
+    flex-direction : column;
+    width: 100%;
+    &.--normal{
+        padding-top : 161px;
+        margin-bottom : 159px;
+    }
+    &.--special{
+        margin-bottom : 160px;
+    }
+}
+.p-medical-article-body{
+    width: calc(100%);
+    background-color: $color-sub2;
+    display: flex;
+    flex-direction: column;
+    .list{
+        width: calc(100% - 40px );
+        max-width: $layout-width-inner-lg;
+        display:flex;
+        flex-direction: column;
+        margin-top: 60px;
+        gap: 40px;
+        .item{
+            .card{
+                position : relative;
+                background-color : $color-white;
+                border-radius: 20px;
+                padding-block : 60px;
+                padding-inline : 60px;
+                .label{
+                    position :absolute;
+                    top : 0;
+                    width: 100px;
+                    height: 80px;
+                    right : 60px;
+                    padding-top : 24px;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 50% 80%, 0% 100% );
+                    color : $color-font-w;
+                    &.--blue{
+                        background-color : $color-main;
+                    }
+                    &.--red{
+                        background-color : $color-lightcoral;
+                    }
+                }
+                .head{
+                    display: flex;
+                    flex-direction : row;
+                    align-items: center;
+                    .sub{
+                        color : $color-main;
+                        @include fz(14,21,bold);
+                        @include ls(8);
+                        margin-left: 40px;
+                    }
+                    padding-bottom : 36px;
+                    border-bottom : 1px solid $color-lightgray;
+                }
+                .content{
+                    display: flex;
+                    flex-direction: row;
+                    width :100%;
+                    padding-top : 36px;
+                    gap: 40px;
+                    overflow : hidden;
+                    .txt{
+                        @include fz(14,24,500);
+                        @include ls(0);
+                        text-align:left;
+                        max-width: 420px;
+                        flex:1;
+                        max-height: calc(315px);
+                        //  元々長い文章を表示する項目でない事から見切れても放置していたが
+                        //  それはそれで不格好という事でスクロールバーを付けておく。
+                        overflow-y:auto;
+                        //overflow: hidden;
+                        //display: -webkit-box;
+                        //-webkit-box-orient: vertical;
+                        //-webkit-line-clamp: 14;
+                        p{
+                            margin-bottom: 12px;
+                        }
+                        scrollbar-width: 4px;
+                        &::-webkit-scrollbar{
+                            width: 10px;
+                        }
+                        &::-webkit-scrollbar-track{
+                            background-color: rgba(240,240,240,1);
+                
+                        }
+                         &::-webkit-scrollbar-thumb{
+                            background-color: rgba(255,255,255,0.8);
+                            border : 1px solid rgba(225,225,225,1);
+                            border-radius:4px;
+                        }                          
+                    }
+                    .pic{
+                        max-width: 420px;
+                        width: 50%;
+                        aspect-ratio : 420/315;
+                        border-radius : 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+//  タブ以下
+@include mq('-lg') {
+    .p-medical-list{
+    }        
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+.p-medical {
+    margin-top: 60px;
+}
+
+.p-medical__inner {
+}
+
+.p-medical-taglistwrap{
+    max-width: calc( 100% - 40px );
+    gap: 32px;
+    &.--special{
+        margin-top: 80px;
+    }
+    .l-heading{
+        align-items:center;
+    }
+    .p-medical-taglist{
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+        .p-medical-tagitem{
+            width: 100%;
+            padding-block : 15px;
+            padding-inline :inherit;
+            @include fz(20,30,bold);
+            @include ls(8);
+        }
+    }
+}
+
+.p-medical-article-wrap{
+    &.--normal{
+        padding-top : 100px;
+        margin-bottom : 100px;
+    }
+    &.--special{
+        margin-bottom : 100px;
+    }
+}
+.p-medical-article-body{
+    width: 100%;
+    padding-top: 27px;
+    padding-bottom : 62px;
+    display:flex;
+    align-items: center;
+    .list{
+        width: 100%;
+        max-width: $layout-width-inner-lg;
+        display:flex;
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 40px;
+        .item{
+            display:flex;
+            justify-content: center;
+            .card{
+                width: calc( 100% - 40px );
+                padding-block : 20px;
+                padding-inline : 20px;
+                .label{
+                    position :absolute;
+                    width: 80px;
+                    height: 60px;
+                    right : 20px;
+                    @include fz(14,21,bold);
+                    @include ls(8);
+                    padding-top : 14px;
+                }
+                .head{
+                    display: flex;
+                    flex-direction : column;
+                    align-items: flex-start;
+                    .sub{
+                        color : $color-main;
+                        @include fz(14,21,bold);
+                        @include ls(8);
+                        margin-top : 20px;
+                        margin-left: 0px;
+                    }
+                    padding-bottom : 20px;
+                }
+                .content{
+                    display: flex;
+                    flex-direction: column;
+                    width :100%;
+                    padding-top : 16px;
+                    gap: 16px;
+                    .txt{
+                        @include fz(14,24,500);
+                        @include ls(0);
+                        text-align:left;
+                        max-width: none;
+                        width: 100%;
+                    }
+                    .pic{
+                        width: 100%;
+                        max-width: none;
+                        aspect-ratio : 295/221;
+                        border-radius : 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+}

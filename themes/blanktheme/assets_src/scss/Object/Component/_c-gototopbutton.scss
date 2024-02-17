@@ -1,0 +1,57 @@
+@use '../../global' as g;
+//    ボタン
+.c-gotoTopButton {
+    position : fixed;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    right: 20px;
+    bottom : 40px;
+    transition : background-color 0.3s, color 0.3s, opacity 0.3s;
+    background-color : g.$color-white;
+    border: 3px solid g.$color-main;
+    z-index : 10;
+    opacity: 0;
+    pointer-events: none;
+    &:hover{
+        cursor:pointer;
+        opacity: 0.8;
+        .c-gotoTopButton__arrow{
+            transform:translate(0, -2px);
+        }
+    }
+    &[data-disp="open"]{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .c-gotoTopButton__inner{
+        display: block;
+        position:relative;
+        margin: auto;
+    }
+    .c-gotoTopButton__arrow{
+        display: block;
+        transition : transform 0.3s;
+        @include g.icon('arrow-up');
+    }    
+}
+
+
+
+//  レスポンシブ
+//  PC版のみのCSS 768px以上
+@include g.mq('md-') {
+}
+
+//  SP 767以下
+@include g.mq('-md') {
+.c-gotoTopButton {
+    right: 10px;
+    bottom : 97px;
+}
+
+}

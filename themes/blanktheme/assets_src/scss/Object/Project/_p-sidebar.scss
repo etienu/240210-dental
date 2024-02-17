@@ -1,0 +1,116 @@
+@use '../../global' as *;
+
+.p-sidebar-about-wrap{
+    display : flex;
+    flex-direction : column;
+    align-items : flex-start;
+    text-align: left;
+    .pic{
+        width: 300px;
+        aspect-ratio: 300/188;
+        margin-bottom : 20px;
+    }
+    .ttl{
+        @include fz(16,24,bold);
+        @include ls(0);
+        margin-bottom : 10px;
+    }
+    .txt{
+        @include fz(14,24,500);
+        @include ls(0);
+        margin-bottom : 10px;
+    }
+    .link{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        @include fz(14,21,500);
+        @include ls(0);
+        color : $color-main;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+.p-sidebar-newslist-wrap{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.p-sidebar-categorylist-wrap{
+    width: 100%;
+    display:flex;
+    flex-direction : column;
+    .p-sidebar-categorylist,
+    .p-sidebar-categorylist-over{
+        margin-left: 20px;
+        .item{
+            display:flex;
+            flex-direction:row;
+            align-items: center;
+            gap: 6px;
+            transition : opacity 0.3s;
+            .cat{
+                .cnt{
+                    color : $color-gray;
+                    @include fz(12,16,500);
+                    @include ls(0);
+                    margin-left: 8px;
+                }
+            }
+            &:hover{
+                opacity: 0.8;
+                color :$color-main;
+            }
+        }
+    }
+    .p-sidebar-categorylist-over-btn{
+        max-width: 200px;
+        margin-top : 12px;
+    }
+    .p-sidebar-categorylist-over{
+        height: 0;
+        overflow:hidden;
+    }
+}
+
+//----------------------------
+//  タブ以下
+@include mq('-lg') {
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+.p-sidebar-about-wrap{
+    width: 100%;
+    .pic{
+        width: 100%;
+        aspect-ratio: 335/210;
+    }
+    .ttl{
+    }
+    .txt{
+    }
+    .link{
+    }
+}
+
+.p-sidebar-newslist-wrap{
+}
+
+.p-sidebar-categorylist-wrap{
+    width: 100%;
+    display:flex;
+    flex-direction : column;
+    .p-sidebar-categorylist{
+        .item{
+        }
+    }
+}
+    
+
+}

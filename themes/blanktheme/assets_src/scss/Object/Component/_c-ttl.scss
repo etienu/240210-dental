@@ -1,0 +1,133 @@
+@use '../../global' as g;
+//    タイトル
+.c-ttl {
+    //  normal
+    &.--n{
+        @include g.fz(28,44,bold);
+        @include g.ls(8);
+    }
+    &.--under{
+        @include g.fz(16,24,bold);
+        @include g.ls(0);
+        width: 100%;
+    }
+
+    &.--fvnews{
+        @include g.fz( 20,30,bold );
+        @include g.ls( 10 );
+        span{
+            padding-left: 16px;
+            @include g.fz(12,18,bold);
+            @include g.ls(10);
+            color : g.$color-main;
+        }
+    }
+    &.--sec{
+        position : relative;
+        display: flex;
+        align-items: center;
+        @include g.fz(28,42,bold);
+        @include g.ls(8);
+        &:before,
+        &:after{
+            position: absolute;
+            width: 67px;
+            content:"";
+            background-image : url( "../img/common/sec-title-deco.svg" );
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            aspect-ratio: 67/20;
+        }
+        &:before{
+            left : -95px;
+        }
+        &:after{
+            right : -95px;
+        }
+    }
+    &.--serif{
+        display: flex;
+        justify-content: center;
+        position : relative;
+        width: 100%;
+        @include g.fz(20,32,bold);
+        @include g.ls(8);
+        font-size : g.vwml(20);
+        line-height : g.vwml(32);
+        color : g.$color-font-w;
+        background-color: g.$color-main;
+        border-radius : 22px;
+        padding-block: 6px;
+        &:before{
+            position : absolute;
+            content :"";
+            background-color: g.$color-main;
+            bottom : -12px;
+            width: 20px;
+            height: 20px;
+            clip-path: polygon(50% 100%, 40% 95%, 0% 0%, 100% 0%, 60% 95%);
+        }
+    }
+}
+
+
+//  レスポンシブ
+//  PC版のみのCSS 768px以上
+@include g.mq('md-') {
+}
+
+//  SP 767以下
+@include g.mq('-md') {
+//    タイトル
+.c-ttl {
+    //  normal
+    &.--n{
+        @include g.fz(20,28,bold);
+    }
+    &.--under{
+        @include g.fz(16,20,bold);
+    }
+
+    &.--fvnews{
+        span{
+            @include g.fz(11,16,bold);
+        }
+    }
+    &.--sec{
+        position : relative;
+        display: flex;
+        align-items: center;
+        @include g.fz(20,28,bold);
+        @include g.ls(8);
+        &:before,
+        &:after{
+            width: 49px;
+            height : 13px;
+            aspect-ratio: 49/13;
+        }
+        &:before{
+            left : calc(-49px + -15px);
+        }
+        &:after{
+            right : calc(-49px + -15px);
+        }
+    }
+    &.--serif{
+        display: flex;
+        justify-content: center;
+        position : relative;
+        width: 100%;
+        @include g.fz(20,30,bold);
+        @include g.ls(8);
+        background-color: g.$color-main;
+        padding-block: 6px;
+        &:before{
+            bottom : -12px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+}

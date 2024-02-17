@@ -1,0 +1,51 @@
+@use '../../global' as *;
+.p-contact {
+    position:relative;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    .p-contact__inner{
+        display: flex;
+        flex-direction : column;
+        align-items: center;
+    }
+    .p-contact-txtwrap{
+        display:flex;
+        justify-content: center;
+        @include fz(14,24,500);
+        @include ls(0);
+        margin-bottom: 150px;
+        max-width: 730px;
+        text-align:left;
+        .red{
+            color : $color-lightcoral;
+        }
+    }
+    .p-contact__txt{
+        margin :auto;
+        width: 800px;
+        height: 60px;
+    }//.p-flow__wrap{
+}
+
+//  レスポンシブ
+@include mq('-lg') {
+}
+    
+//  SP 767以下
+@include mq('-md') {
+.p-contact {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    .p-contact__inner{
+    }
+    .p-contact-txtwrap{
+        @include fz(14,24,500);
+        @include ls(0);
+        margin-bottom: 100px;
+        max-width: none;
+        width: calc(100% - 40px );
+    }
+}
+
+}
