@@ -1,0 +1,66 @@
+@use '../../global' as *;
+
+.p-single {
+    margin-top: 80px;
+    margin-bottom : 160px;
+}
+
+.p-single__inner {
+    flex-direction : row;
+    justify-content: center;
+    align-items:flex-start;
+    max-width: calc($layout-width-inner-lg + 50px + 40px);
+    padding-inline : vwml(20);
+    gap: vwml(30);
+    /*
+        100%
+        - [padding]vwml(40)
+        - [gap]vwml(30)
+        - [sidebar]300px
+        = mainに残されたwidth
+        mainの幅を制限すれば収まる事から、vwのミスと考えられる
+    */
+}
+
+.p-single-main{
+    .p-single-list{
+        display : flex;
+        flex-direction : column;
+        align-items : flex-start;
+        gap: 20px;
+    }
+}
+
+.p-sidebar-about-wrap{
+}
+
+
+
+
+//----------------------------
+//  タブ以下
+@include mq('-lg') {
+}
+
+
+//  SP 767以下
+@include mq('-md') {
+.p-single {
+    margin-top: 60px;
+    margin-bottom : 100px;
+}
+
+.p-single__inner {
+    max-width: calc(100% - 40px);
+    flex-direction : column;
+    padding-inline : 0px;
+    gap: 100px;
+}
+
+.p-single-main{
+    .p-single-list{
+        gap: 20px;
+    }
+}
+
+}
