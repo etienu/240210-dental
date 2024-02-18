@@ -353,6 +353,21 @@
     }
 }
 
+//  safari用( シャドウコンテンツの日付が見えてしまうので消す )
+body .safari input::-webkit-datetime-edit{
+    display: none;
+}
+
+//  safari用のカレンダー隠しを全体適応
+.cf7-a-date{
+    overflow:hidden;
+    .wpcf7-date{
+        &:before {
+            position :absolute;
+            background-color : $color-forminputgray;
+        }
+    }
+}
 
 //---- textarea ----------------
 #cf7-area textarea{

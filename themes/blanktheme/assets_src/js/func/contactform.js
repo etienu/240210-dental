@@ -26,7 +26,7 @@ export default class contactform {
         //  カレンダー入力の設定
         let elm_dates = elm.querySelectorAll("input[type='date']");
         elm_dates.forEach((d) => {
-            console.log("初期値:",d.value); 
+            //console.log("初期値:",d.value); 
             d.addEventListener(`change`, function () {
                 //  日付データ
                 //console.log(d.value);

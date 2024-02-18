@@ -4,14 +4,6 @@
     //  wordpressのfunc中呼び出し設定(../)と、
     //  直書き(../../)で何故かURLの階層が違うので注意。フォントも同じ。
     --dir-img : "../img/";
-    //  URL一括調整の為にここで指定。数がない場合の最適解
-    --bgurl-about     : url("../img/about/bg.png" );
-    --bgurl-about-webp: url("../img/about/bg.webp");
-    --bgurl-flow      : url("../img/flow/bg.jpg" );
-    --bgurl-flow-webp : url("../img/flow/bg.webp");
-    --bgurl-our       : url("../img/our/bg.jpg" );
-    --bgurl-our-webp  : url("../img/our/bg.webp");
-    --bgurl-befworrie : url("../img/worries/bef_worrie@2x.png");
 }
 // 基本となるコンテンツ幅
 $layout-width-comp:1280px; //  デザインカンプ幅

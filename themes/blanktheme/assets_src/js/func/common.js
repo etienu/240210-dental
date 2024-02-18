@@ -19,7 +19,7 @@ export default class Common {
             spanText = divs.innerHTML;
         }else{
             divs = i_target.querySelector(i_tag);
-            console.log(i_target );
+            //console.log(i_target );
             spanText = divs.innerHTML;
         }
         //  要素内文字をspanで分割

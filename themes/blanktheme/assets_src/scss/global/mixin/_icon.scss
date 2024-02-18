@@ -69,7 +69,8 @@
         }
         @else{
             aspect-ratio: 42/26;
-            width: 52px;
+            //width: 52px;
+            width: 46px;
             height: 28px;
         }
         @if($i_col==false){

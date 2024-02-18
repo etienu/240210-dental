@@ -691,7 +691,7 @@ class Common {
       spanText = divs.innerHTML;
     } else {
       divs = i_target.querySelector(i_tag);
-      console.log(i_target);
+      //console.log(i_target );
       spanText = divs.innerHTML;
     }
     //  要素内文字をspanで分割
@@ -767,7 +767,7 @@ class contactform {
     //  カレンダー入力の設定
     let elm_dates = elm.querySelectorAll("input[type='date']");
     elm_dates.forEach(d => {
-      console.log("初期値:", d.value);
+      //console.log("初期値:",d.value); 
       d.addEventListener(`change`, function () {
         //  日付データ
         //console.log(d.value);
