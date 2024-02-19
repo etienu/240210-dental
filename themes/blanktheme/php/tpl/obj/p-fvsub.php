@@ -13,7 +13,11 @@
         case "about" : $iname = 'page-about_top'; break;
         case "medical" : $iname = 'page-medical_top'; break;
         case "staff" : $iname = 'page-staff_top'; break;
-        case "blog" : $iname = 'archive_top'; break;
+        case "news-blog" :
+        case "blog" :
+            $iname = 'archive_top';
+            break;
+        case "news-single" :
         case "single" :
             $iname = 'archive_top';
             $fsingle = true;

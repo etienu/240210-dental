@@ -12,11 +12,11 @@
 ?>
                 <ul class="list">
                     <?php
-                        //  カスタム投稿タイプ、カテゴリhygienistの表示
+                        //  カスタム投稿タイプstaffの表示
                         $my_args = array(
                             'post_type' => array('staff'),
                             'posts_per_page' => 10,
-                            'order' => 'DESC',
+                            'order' => 'ASC',
                             'orderby' => 'post_date',
                             //  タクソノミーの指定
                             'tax_query' => array(

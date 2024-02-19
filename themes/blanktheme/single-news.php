@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 <body>
 
-<?php $pageid = "single"; ?>
+<?php $pageid = "news-single"; ?>
 
 <?php /* ヘッダーバー */ ?>
 <?php get_template_part(GET_PATH_R('tpl').'obj/p-headerbar', null, ['page'=>$pageid]); ?>

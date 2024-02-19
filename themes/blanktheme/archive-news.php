@@ -8,7 +8,7 @@
 <?php get_header(); ?>
 <body>
 
-<?php $pageid = "blog"; ?>
+<?php $pageid = "news-blog"; ?>
 
 <?php /* ヘッダーバー */ ?>
 <?php get_template_part(GET_PATH_R('tpl').'obj/p-headerbar', null, ['page'=>$pageid]); ?>

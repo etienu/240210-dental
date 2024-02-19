@@ -62,16 +62,17 @@
         color : g.$color-font-w;
         background-color : g.$color-main;
         border: 1px solid g.$color-main;
+        padding-block : 14px;
         &:before{
             content:"";
             @include g.icon( 'pcs','ffffff' );
             margin-right:6px;
         }
         &:hover{
-            color :g.$color-main;
-            background-color : g.$color-white;
+            color :g.$color-font-w;
+            background-color : g.$color-sub1;
             &:before{
-                background-color : g.$color-main;
+                background-color : g.$color-font-w;
 
             }
         }
@@ -142,8 +143,8 @@
     @include g.fz(16,21,400);
     @include g.ls(0);
     padding-block : 12px;
-    transition : opacity 0.3s;
     &.--pcs{
+        padding-block : 10px;
         padding-inline: 24px 24px;
     }
     &.--email{

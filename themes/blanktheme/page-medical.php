@@ -24,9 +24,9 @@
                 <h2 class="c-ttl --n">一般診療</h2><p class="tag --blue">保険対象</p>
             </div>
             <ul class="p-medical-taglist">
-                <li class="item"><a href="#g1"><div class="p-medical-tagitem">一般歯科</div></a></li>
-                <li class="item"><a href="#g2"><div class="p-medical-tagitem">小児歯科</div></a></li>
-                <li class="item"><a href="#g3"><div class="p-medical-tagitem">予防歯科</div></a></li>
+                <li class="item"><a href="#g1"><div class="p-medical-tagitem"><span class="txt">一般歯科</span></div></a></li>
+                <li class="item"><a href="#g2"><div class="p-medical-tagitem"><span class="txt">小児歯科</span></div></a></li>
+                <li class="item"><a href="#g3"><div class="p-medical-tagitem"><span class="txt">予防歯科</span></div></a></li>
             </ul>
         </div>
         <div class="p-medical-taglistwrap --special">
@@ -34,11 +34,11 @@
                 <h2 class="c-ttl --n">特殊診療</h2><p class="tag --red">実費</p>
             </div>
             <ul class="p-medical-taglist">
-                <li class="item"><a href="#s1"><div class="p-medical-tagitem">入れ歯</div></a></li>
-                <li class="item"><a href="#s2"><div class="p-medical-tagitem">矯正歯科</div></a></li>
-                <li class="item"><a href="#s3"><div class="p-medical-tagitem">ホワイトニング</div></a></li>
-                <li class="item"><a href="#s4"><div class="p-medical-tagitem">口腔外科</div></a></li>
-                <li class="item"><a href="#s5"><div class="p-medical-tagitem">レーザー治療</div></a></li>
+                <li class="item"><a href="#s1"><div class="p-medical-tagitem"><span class="txt">入れ歯</sapn></div></a></li>
+                <li class="item"><a href="#s2"><div class="p-medical-tagitem"><span class="txt">矯正歯科</sapn></div></a></li>
+                <li class="item"><a href="#s3"><div class="p-medical-tagitem"><span class="txt">ホワイトニング</sapn></div></a></li>
+                <li class="item"><a href="#s4"><div class="p-medical-tagitem"><span class="txt">口腔外科</sapn></div></a></li>
+                <li class="item"><a href="#s5"><div class="p-medical-tagitem"><span class="txt">レーザー治療</sapn></div></a></li>
             </ul>
         </div>
 

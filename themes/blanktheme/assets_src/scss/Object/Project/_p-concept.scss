@@ -18,9 +18,13 @@
         &.--rev{
             .p-concept-img{
                 order: 1;
-                img{
+                picture{
+                    margin-left: auto;
+                    border-radius: 20px;
                     border-top-right-radius : 0;
                     border-bottom-right-radius : 0;
+                    }
+                img{
                 }
             }
             .p-concept-txtwrap{
@@ -53,10 +57,21 @@
         justify-content: space-between;
         width: 100%;
         .p-concept-img {
+            display: flex;
+            margin:auto;
+            picture{
+                overflow: hidden;
+                width: calc( 100% - 40px );
+                max-height: 438px;
+                border-radius: 20px;
+                border-top-left-radius : 0;
+                border-bottom-left-radius : 0;
+        }
             img{
                 width: g.vwx(640);
-                aspect-ratio: 640/438;
-                border-radius: 20px;
+                aspect-ratio: auto;//
+                object-fit : cover;
+                object-position: 50% 50%;
             }
         }
         .p-concept-txtwrap {
@@ -107,12 +122,14 @@
         &.--rev{
             .p-concept-img{
                 order: 1;
+                justify-content: flex-end;
+                margin-inline: auto 0;
                 picture{
-                    justify-content: flex-end;
-                }
-                img{
+                    border-radius: 20px;
                     border-top-right-radius : 0;
                     border-bottom-right-radius : 0;
+                    }
+                img{
                 }
             }
             .p-concept-txtwrap{
@@ -128,7 +145,7 @@
         justify-content: flex-end;
         img{
             width: g.vws(556);
-            aspect-ratio: 556/309;
+            //aspect-ratio: 556/309;
             transform : translateX( 2% );
         }
     }
@@ -146,16 +163,20 @@
         gap: 41px;
         .p-concept-img {
             order : 1;
-            width: 100%;
+            width: fit-content;
+            justify-content: flex-start;
+            margin-inline: 0 auto;
             picture{
                 display:flex;
-                justify-content: flex-start;
-            }
-            img{
-                width: calc(100% - 41px );
-                aspect-ratio: 334/230;
                 border-top-left-radius: 0px;
                 border-bottom-left-radius: 0px;
+                //width: fit-content;
+                max-height: 230px;
+            }
+            img{
+                //width: calc(100% - 41px );
+                width: calc(100%);
+                aspect-ratio: 334/230;
             }
         }
         .p-concept-txtwrap {
