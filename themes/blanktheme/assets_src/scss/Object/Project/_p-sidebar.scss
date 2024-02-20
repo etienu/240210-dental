@@ -40,6 +40,13 @@
     width: 100%;
 }
 
+.p-sidebar-newslist{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
 .p-sidebar-categorylist-wrap{
     width: 100%;
     display:flex;

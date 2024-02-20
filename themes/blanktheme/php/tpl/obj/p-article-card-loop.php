@@ -35,7 +35,6 @@
                             <?php if(has_post_thumbnail()): ?>
                                 <picture class="pic">
                                     <?php the_post_thumbnail(); ?>
-                                    <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>" width="120" height="90">
                                 </picture>
 
                             <?php else: ?>
